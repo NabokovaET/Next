@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <>
       <Head>
-        <title>Posts</title>
+        <title>Home</title>
       </Head>
       <Heading text='Hello world!'/>
     </>
