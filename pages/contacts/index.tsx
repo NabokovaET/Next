@@ -4,6 +4,28 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Heading from "../../components/Heading";
 import { contactType } from "../../components/types";
+import styled from "@emotion/styled";
+
+const ContactsList = styled.ul`
+    display: flex;
+    flex-direction: column;
+`
+
+const ContactsItem = styled.li`
+    font-size: 1.2rem;
+    margin: 0.3rem;
+    padding: 0.5rem;
+    border: 1px solid #d94821;
+    cursor: pointer;
+    &:hover {
+        background: #d94821;
+        color: #fff;
+    }
+    & > a {
+        display: inline-block;
+        width: 100%;
+    }
+`
 
 type ContactsTypeProps = {
     contacts: [contactType],
@@ -31,13 +53,13 @@ const Contacts:FC<ContactsTypeProps> = ({ contacts }) => {
                 <title>Contacts</title>
             </Head>
             <Heading text='Contacts list'/>
-            <ul>
+            <ContactsList>
                 {contacts && contacts.map(({ id, name }) => (
-                    <li key={id}>
+                    <ContactsItem key={id}>
                         <Link href={`/contacts/${id}`}>{name}</Link>
-                    </li>
+                    </ContactsItem>
                 ))}
-            </ul>
+            </ContactsList>
         </>
     )
 };

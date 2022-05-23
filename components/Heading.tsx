@@ -6,7 +6,7 @@ type HeadingProps = {
 }
 
 const Heading:FC<HeadingProps> = ({tag, text}) => {
-    const Tag:string = tag || 'h1';
+    const Tag = tag || 'h1';
     return <Tag>{text}</Tag>
 }
 
